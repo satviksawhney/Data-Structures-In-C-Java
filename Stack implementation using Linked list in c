@@ -1,0 +1,56 @@
+#include<stdio.h>
+
+struct Stack
+{
+    int info;
+    struct Stack *next;
+
+};
+
+struct Stack *start=NULL;
+
+
+void main()
+{
+    int element;
+    push(9);
+    push(12);
+   element=pop();
+
+    printf("%d",element);
+}
+
+void push(int X)
+{
+    struct Stack *new;
+    new=(struct Stack *)malloc (struct Stack,1);
+    new->info=X;
+    new->next=NULL;
+    new->next=start;
+    start=new;
+    
+}
+
+
+int pop()
+{
+
+     int s;
+     if(start==NULL)
+    {
+        printf("Underflow");
+        return (-3);
+    
+    }
+    
+    
+    else
+    
+    {
+        s=start->info;
+        start=start->next;
+        return(start);
+    } 
+
+
+}

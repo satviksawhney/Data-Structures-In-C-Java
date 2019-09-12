@@ -1,0 +1,109 @@
+
+int stack[40],i;
+int top1=-1, top2=40;
+
+void main()
+{
+    int element;
+
+    //To push into stack 1
+    push1(1);
+    push1(2);
+    push1(6);
+    push1(8);
+
+
+    //To push int stack 2
+    push2(10);
+    push2(9);
+    push2(11);
+    push2(12);
+
+
+    //To pop elements from stack 1
+    for(i=0;i<4;i++)
+    {
+        element=pop1();
+        printf("\n%d",element);
+    }
+
+    printf("\n This is stack 1");
+
+    //To pop elements from stack 2
+    for(i=0;i<4;i++)
+    {
+        element=pop2();
+        printf("\n%d",element);
+    }
+    printf("\n This is stack 2");
+
+}
+
+
+void push1(int x)
+{
+
+    if(top1==top2)
+    {
+        printf("Stack overflow");
+    }
+    else
+    {
+        top1=top1+1;
+    stack[top1]=x;
+    }
+}
+
+
+
+
+int pop1()
+{
+
+    int s;
+    if(top1==-1)
+    {
+
+        printf("underflow");
+        return(-3);
+    }
+    else
+    {
+        s=stack[top1];
+        top1=top1-1;
+        return(s);
+    }
+}
+
+
+void push2(int a)
+{
+    if(top2==top1)
+    {
+        printf("stack Overflow");
+    }
+    else
+    {
+        top2=top2-1;
+        stack[top2]=a;
+    }
+}
+
+int pop2()
+{
+    int l;
+    if(top2==40)
+    {
+        printf("Underflow");
+        return(-3);
+    }
+    else
+    {
+
+        l=stack[top2];
+        top2=top2+1;
+        return(l);
+    }
+}
+
+

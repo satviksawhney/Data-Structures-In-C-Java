@@ -1,0 +1,77 @@
+class Queue
+{
+    
+    private char info;
+    private Queue next;
+    private Queue last=null;
+    private Queue start=null;
+    
+    Queue()
+    {
+        info=0;
+        next=null;
+    }
+    
+    Queue(char x)
+    {
+       info=x;
+       next=null;
+        
+    }
+    
+    void insert(char x)
+    {
+       Queue newn=new Queue(x);
+      
+        
+        if(start==null)
+        {
+            start=newn;
+            last=newn;
+        }
+        else
+        {
+            last.next=newn;
+            last=newn;
+        }
+        
+    }
+    
+    
+    void delete()
+    {
+        
+        System.out.println(start.info);
+        if(start==null)
+            System.out.println("Underflow");
+        else if(start==last)
+        {
+            start=null;
+            last=null;
+        }
+        else
+        {
+            start=start.next;
+        }
+        
+      
+    }
+    
+}
+public class QueueLinkedList {
+  
+    
+    public static void main(String args[])
+    {
+        char c;
+        Queue s1=new Queue();
+         s1.insert('a');
+         s1.insert('s');
+         s1.delete();
+         s1.delete();
+         
+      
+    }
+
+    
+}

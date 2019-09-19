@@ -1,0 +1,97 @@
+class Queue
+{
+    
+    private int info;
+    private int priority;
+    private Queue next;
+    private Queue last;
+    private Queue start;
+    private Queue temp;
+    
+    Queue()
+    {
+        info=0;
+        priority=0;
+        next=null;
+    }
+    
+    Queue(int x, int y)
+    {
+       info=x;
+       priority=y;
+       next=null;
+        
+    }
+    
+    void insert(int a, int s)
+    {
+       Queue newn=new Queue(a,s);
+      
+        
+        if(start==null)
+        {
+            start=newn;
+            last=newn;
+        }
+        else  
+        {
+            temp=start;
+        
+        if((temp.next!=null) && (temp.next.priority<newn.priority))
+        {
+            
+            temp=temp.next;
+            newn.next=temp.next;
+            temp.next=newn;
+        }
+        
+        }
+      
+        
+        
+    }
+    
+    
+    void delete()
+    {
+        
+        System.out.println(temp.info);
+        
+        if(start==null)
+        {
+            System.out.println("Underflow");
+        }
+        else if(start==last)
+        {
+            start=null;
+            last=null;
+        }
+        else
+        {
+            start=start.next;
+        }
+        
+      
+    }
+    
+}
+public class Priority 
+{
+     
+    public static void main(String args[])
+    {
+        
+       
+        Queue s1=new Queue();
+         s1.insert(23,5);
+         s1.insert(11,8);
+         s1.insert(23,3);
+         s1.delete();
+         s1.delete();
+         s1.delete();
+         
+      
+    }
+
+    
+}

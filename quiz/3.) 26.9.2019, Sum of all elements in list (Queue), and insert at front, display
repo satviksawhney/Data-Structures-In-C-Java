@@ -1,0 +1,83 @@
+#include<stdio.h>
+struct Node
+{
+int info;
+struct Node *next;
+};
+
+struct Node *start,*last,*newnode;
+
+
+void main()
+{
+start=NULL;
+last=NULL;
+
+int a,ch;
+
+while(1)
+{
+printf("\t\t**** MENU **** \n\n \t1.Insert element at beginning. \n \t2.Display elements. \n \t3.Find sum \n \t4.Exit \n");
+
+scanf("\t %d",&a);
+
+switch(a)
+{
+    case 1:
+
+        newnode=(struct Node *)malloc(sizeof(struct Node));
+        printf("\t Enter element that is to be inserted \n");
+        scanf("\n \t %d",&ch);
+        newnode->info=ch;
+        newnode->next=NULL;
+
+        if(start==NULL)
+            {
+            start=newnode;
+            last=newnode;
+            }
+        else
+            {
+            newnode->next=start;
+            start=newnode;
+            }
+            break;
+
+    case 2: if(start==NULL)
+        {
+            printf("\n \tNo element present");
+        }
+            else
+            {
+                while(start!=NULL)
+            {
+                printf("\n \t%d",start->info);
+                start=start->next;
+            }
+            }
+            break;
+
+
+    case 3:     printf("\n \tSum of all elements is: ");
+                int sum=0;
+
+                if(start==NULL)
+                printf("\n \tNo element present");
+
+                else{
+
+                sum+=start->info;
+                start=start->next;
+                printf("\n \t%d",sum);
+                }
+
+
+
+                break;
+
+    case 4:     exit(0);
+}
+}
+}
+
+

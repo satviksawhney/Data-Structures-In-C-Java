@@ -1,0 +1,92 @@
+#include<stdio.h>
+
+struct Node
+{
+    int info;
+    struct Node *next;
+    struct Node *previous;
+};
+
+struct Node *start, *last;
+
+void main()
+{
+    struct Node *temp, *newn;
+    start=NULL;
+    last=NULL;
+    int a,ch;
+
+    while(1)
+    {
+
+        printf(" 1.Insert at beginning \n 2. Displaty from start. \n 3. Display from end");
+        scanf("\n\t%d",&ch);
+
+        switch(ch)
+        {
+
+            case 1:                                                           //Insert at beginning of queue.
+                    newn=(struct Node *)malloc(sizeof(struct Node));
+                    printf("enter element to be inserted");
+                    scanf("\n\t%d",&a);
+                    newn->info=a;
+                    newn->next=NULL;
+                    newn->previous=NULL;
+
+                    if(start==NULL)
+                    {
+                        start=newn;
+                        last=newn;
+                    }
+                    else
+                    {
+
+                        newn->next=start;
+                        start->previous=newn;
+                        start=newn;
+
+                    }
+                    break;
+
+            case 2:                                                            //Display elements from beginning.
+                    temp=start;
+
+                    while(temp!=NULL)
+                    {
+
+                        printf(temp->info);
+                        temp=temp->next;
+
+                    }
+                    break;
+
+
+            case 3:                                                             //Display elements from end.
+                    temp=last;
+
+                    while(temp!=NULL)
+                    {
+
+                        printf(temp->info);
+                        temp=temp->previous;
+
+                    }
+                    break;
+
+
+
+
+
+
+
+
+
+
+
+        }
+
+
+
+
+
+    }
